@@ -1,0 +1,15 @@
+class Solution(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        unpaired=set()
+        for char in s:
+            if char in unpaired:
+                unpaired.remove(char)
+            else:
+                unpaired.add(char)
+        if unpaired:
+            return len(s)-len(unpaired)+1
+        return len(s)
